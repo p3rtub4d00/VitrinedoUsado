@@ -1,20 +1,17 @@
 const grid = document.getElementById('product-grid');
 let allProducts = [];
 
-// Função principal para buscar produtos
 async function fetchProducts() {
     try {
-        // Chama a API que criamos no passo anterior
         const response = await fetch('/api/products');
         allProducts = await response.json();
         renderProducts(allProducts);
     } catch (error) {
-        grid.innerHTML = '<p style="text-align:center; width:100%">Erro ao carregar produtos. O servidor está rodando?</p>';
+        grid.innerHTML = '<p style="text-align:center; width:100%">Carregando...</p>';
         console.error(error);
     }
 }
 
-// Função que desenha os cards na tela
 function renderProducts(products) {
     grid.innerHTML = '';
 
@@ -24,22 +21,20 @@ function renderProducts(products) {
     }
 
     products.forEach(product => {
-        // Lógica das Etiquetas (Badges)
+        // Badges
         let badgeClass = '';
         let badgeText = '';
 
         if (product.originType === 'proprio' || product.originType === 'consignacao') {
             badgeClass = 'badge-proprio';
-            badgeText = '<i class="fa-solid fa-certificate"></i> Verificado TechReborn';
+            badgeText = '<i class="fa-solid fa-certificate"></i> TechReborn';
         } else {
             badgeClass = 'badge-mkt';
             badgeText = '<i class="fa-solid fa-user"></i> Marketplace';
         }
 
-        // Formatação de Preço
         const priceFormatted = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.price);
-
-        // Tratamento da condição
+        
         const conditionMap = {
             'novo': 'Novo (Lacrado)',
             'grade_a': 'Excelente (Grade A)',
@@ -50,6 +45,7 @@ function renderProducts(products) {
 
         const card = document.createElement('div');
         card.className = 'card';
+        // AQUI MUDOU: O botão "Ver Detalhes" agora é um link <a>
         card.innerHTML = `
             <div class="badge-origin ${badgeClass}">${badgeText}</div>
             <img src="${product.imageUrl}" alt="${product.title}" class="card-img-top">
@@ -59,7 +55,7 @@ function renderProducts(products) {
                 <span class="card-condition">${conditionMap[product.condition] || product.condition}</span>
                 <div class="card-footer">
                     <span class="price">${priceFormatted}</span>
-                    <button class="btn-buy">Comprar</button>
+                    <a href="produto.html?id=${product.id}" class="btn-buy">Ver Detalhes</a>
                 </div>
             </div>
         `;
@@ -67,16 +63,13 @@ function renderProducts(products) {
     });
 }
 
-// Filtros simples no Frontend
 function filterProducts(type) {
-    // Atualiza botões
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
 
     if (type === 'todos') {
         renderProducts(allProducts);
     } else if (type === 'proprio') {
-        // Mostra Próprio E Consignação (ambos são "Loja")
         const filtered = allProducts.filter(p => p.originType === 'proprio' || p.originType === 'consignacao');
         renderProducts(filtered);
     } else {
@@ -85,5 +78,4 @@ function filterProducts(type) {
     }
 }
 
-// Inicia
 fetchProducts();

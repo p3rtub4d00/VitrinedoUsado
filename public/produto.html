@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes | Vitrine do Usado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS Específico da página de produto */
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #334155;
+        }
+        .detail-img img { width: 100%; border-radius: 16px; object-fit: cover; max-height: 500px; border: 1px solid #334155; }
+        .detail-info { display: flex; flex-direction: column; justify-content: center; }
+        .detail-category { color: #6366f1; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 10px; font-weight: bold; }
+        .detail-title { font-size: 2.5rem; margin-bottom: 15px; line-height: 1.2; }
+        .detail-price { font-size: 2rem; font-weight: 700; color: #10b981; margin-bottom: 20px; }
+        .detail-desc { color: #94a3b8; line-height: 1.6; font-size: 1.1rem; margin-bottom: 30px; }
+        
+        .btn-whatsapp {
+            background: #25D366; color: white; border: none; padding: 18px;
+            border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            text-decoration: none; transition: 0.3s; width: 100%;
+        }
+        .btn-whatsapp:hover { background: #1ebc57; }
+        
+        .security-box {
+            margin-top: 30px; padding: 20px; background: #0f172a; border-radius: 10px;
+            display: flex; gap: 15px; align-items: center; border: 1px solid #334155;
+        }
+        
+        @media (max-width: 768px) {
+            .product-detail-container { grid-template-columns: 1fr; }
+            .detail-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/" style="color:white; text-decoration:none; display:flex; align-items:center; gap:8px;">
+                <i class="fa-solid fa-arrow-left"></i> Voltar
+            </a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div id="loading" style="text-align: center; margin-top: 50px;">Carregando detalhes...</div>
+        
+        <div id="product-content" class="product-detail-container" style="display: none;">
+            <div class="detail-img">
+                <img id="p-img" src="" alt="Produto">
+            </div>
+            <div class="detail-info">
+                <span id="p-badge" class="badge-origin"></span>
+                <span id="p-category" class="detail-category"></span>
+                <h1 id="p-title" class="detail-title"></h1>
+                <div id="p-price" class="detail-price"></div>
+                <p id="p-desc" class="detail-desc"></p>
+
+                <a id="btn-buy" href="#" target="_blank" class="btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> Comprar Agora
+                </a>
+
+                <div class="security-box">
+                    <i class="fa-solid fa-shield-halved" style="font-size: 2rem; color: #6366f1;"></i>
+                    <div>
+                        <h4 style="color:white;">Compra Segura</h4>
+                        <p style="color:#94a3b8; font-size: 0.9rem;">Pagamento retido até você receber e aprovar o produto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="produto.js"></script>
+</body>
+</html>

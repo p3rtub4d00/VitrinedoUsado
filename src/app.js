@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path'); // <--- 1. Importe isso
 const productRoutes = require('./routes/productRoutes');
 
 const app = express();
@@ -7,12 +8,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Rotas
+// <--- 2. Adicione esta linha para servir os arquivos estáticos da pasta public
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Rotas da API
 app.use('/api/products', productRoutes);
 
-// Rota base para teste
+// <--- 3. Mude a rota raiz para entregar o index.html em vez da mensagem de texto
 app.get('/', (req, res) => {
-    res.send('API de Eletrônicos Híbrida está rodando!');
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 module.exports = app;

@@ -5,10 +5,13 @@ const productController = require('../controllers/productController');
 // Rota para criar produto
 router.post('/', productController.createProduct);
 
-// Rota pública para listar produtos à venda
+// Rota para listar todos
 router.get('/', productController.getAllProducts);
 
-// Rota administrativa para ver o que precisa aprovar (Marketplace)
+// Rota administrativa (tem que vir antes do /:id)
 router.get('/admin/pendentes', productController.getPendings);
+
+// Rota para pegar UM produto (Detalhes)
+router.get('/:id', productController.getProductById);
 
 module.exports = router;

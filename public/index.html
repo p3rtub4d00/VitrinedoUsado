@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechReborn | O Melhor do Recommerce</title>
+    <title>Vitrine do Usado | Marketplace</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -12,39 +12,33 @@
 
     <nav class="navbar">
         <div class="logo">
-            <i class="fa-solid fa-bolt"></i> TechReborn
+            <i class="fa-solid fa-layer-group"></i> Vitrine do Usado
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="Buscar iPhone, Notebook...">
+            <input type="text" placeholder="Buscar produto...">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
         <div class="nav-links">
-            <a href="#" class="btn-sell">Quero Vender</a>
+            <a href="vendedor.html" class="btn-sell">Anunciar Agora</a>
             <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Tecnologia Premium, <span class="highlight">Preço Justo.</span></h1>
-            <p>Compre e venda eletrônicos com garantia e procedência verificada.</p>
+            <h1>Seu usado vale muito na <span class="highlight">Vitrine.</span></h1>
+            <p>A melhor plataforma para comprar e vender com segurança.</p>
             <div class="stats">
-                <div class="stat-item">
-                    <i class="fa-solid fa-check-circle"></i>
-                    <span>Verificados</span>
-                </div>
-                <div class="stat-item">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <span>Garantia</span>
-                </div>
+                <div class="stat-item"><i class="fa-solid fa-check-circle"></i> Verificados</div>
+                <div class="stat-item"><i class="fa-solid fa-shield-halved"></i> Garantia</div>
             </div>
         </div>
     </header>
 
     <section class="filters container">
         <button class="filter-btn active" onclick="filterProducts('todos')">Todos</button>
-        <button class="filter-btn" onclick="filterProducts('proprio')">Loja Oficial (Verificado)</button>
-        <button class="filter-btn" onclick="filterProducts('marketplace')">Marketplace</button>
+        <button class="filter-btn" onclick="filterProducts('proprio')">Loja Oficial</button>
+        <button class="filter-btn" onclick="filterProducts('marketplace')">Vendedores</button>
     </section>
 
     <main class="container">
@@ -54,7 +48,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 TechReborn - O Futuro dos Usados.</p>
+        <p>&copy; 2025 Vitrine do Usado.</p>
     </footer>
 
     <script src="script.js"></script>

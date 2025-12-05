@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Vendedor | Vitrine do Usado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos do formulário */
+        .form-container { max-width: 600px; margin: 50px auto; background: #1e293b; padding: 30px; border-radius: 16px; border: 1px solid #334155; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; color: #cbd5e1; font-weight: 600; }
+        input, select, textarea { width: 100%; padding: 12px; background: #0f172a; border: 1px solid #334155; color: white; border-radius: 8px; outline: none; }
+        input:focus, select:focus, textarea:focus { border-color: #6366f1; }
+        .btn-submit { width: 100%; background: #6366f1; color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 10px; transition: 0.3s; }
+        .btn-submit:hover { background: #4f46e5; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #94a3b8; text-decoration: none; }
+        .back-link:hover { color: white; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Painel do Vendedor</div>
+    </nav>
+
+    <div class="form-container">
+        <h2 style="text-align: center; margin-bottom: 20px;">Anunciar Produto</h2>
+        
+        <form id="sellForm">
+            <div class="form-group">
+                <label>Título do Anúncio</label>
+                <input type="text" id="title" placeholder="Ex: iPhone 11 64GB" required>
+            </div>
+
+            <div class="form-group">
+                <label>Preço (R$)</label>
+                <input type="number" id="price" placeholder="Ex: 1500" required>
+            </div>
+
+            <div class="form-group">
+                <label>Categoria</label>
+                <select id="category">
+                    <option value="celular">Celular</option>
+                    <option value="notebook">Notebook</option>
+                    <option value="game">Videogame</option>
+                    <option value="acessorio">Acessórios</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Condição</label>
+                <select id="condition">
+                    <option value="novo">Novo (Lacrado)</option>
+                    <option value="grade_a">Usado - Excelente</option>
+                    <option value="grade_b">Usado - Muito Bom</option>
+                    <option value="grade_c">Usado - Marcas de Uso</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea id="description" rows="3" placeholder="Detalhes do produto..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>URL da Imagem (Opcional)</label>
+                <input type="text" id="imageUrl" placeholder="Cole um link de imagem da internet">
+            </div>
+
+            <input type="hidden" id="originType" value="marketplace">
+
+            <button type="submit" class="btn-submit">Criar Anúncio</button>
+        </form>
+        
+        <a href="/" class="back-link">← Voltar para a Vitrine</a>
+    </div>
+
+    <script src="vendedor.js"></script>
+</body>
+</html>
